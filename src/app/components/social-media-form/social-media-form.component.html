@@ -1,0 +1,53 @@
+<div>
+  <form [formGroup]="socialMediaForm"
+        (ngSubmit)="onSubmit()"
+        class="bg-white">
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2"
+             for="socialMediaLink">
+        Sosyal Medya Linki
+      </label>
+      <input formControlName="socialMediaLink"
+             id="socialMediaLink"
+             type="text"
+             placeholder="Sosyal Medya Linki"
+             class="appearance-none border rounded-c-lg w-full px-6 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2"
+             for="socialMediaName">
+        Sosyal Medya Adı
+      </label>
+      <input formControlName="socialMediaName"
+             id="socialMediaName"
+             type="text"
+             placeholder="Sosyal Medya Adı"
+             class="appearance-none border rounded-c-lg w-full px-6 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
+    <div class="mb-12">
+      <label class="block text-gray-700 text-sm font-bold mb-2"
+             for="description">
+        Açıklama
+      </label>
+      <input formControlName="description"
+             id="description"
+             type="text"
+             placeholder="Açıklama"
+             class="appearance-none border rounded-c-lg w-full px-6 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
+    <div class="flex justify-end gap-3">
+      <button type="button"
+              class="bg-white text-gray-700 border border-gray-300 rounded-c-lg py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline"
+              (click)="onCancel()">
+        Vazgeç
+      </button>
+      <button type="submit"
+              class="bg-purple-1 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-c-lg focus:outline-none focus:shadow-outline">
+        Kaydet
+      </button>
+    </div>
+  </form>
+</div>
