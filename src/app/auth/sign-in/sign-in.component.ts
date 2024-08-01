@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../utils/services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +13,11 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   signInForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -23,9 +28,12 @@ export class SignInComponent {
 
   onSubmit(): void {
     if (this.signInForm.valid) {
-      // Perform sign in logic here
-      console.log('Form Submitted', this.signInForm.value);
+      // Mock sign in logic
+      const { email, password } = this.signInForm.value;
+      this.authService.signIn(email, password);
       this.router.navigate(['/']);
+    } else {
+      console.log('Invalid credentials');
     }
   }
 }
