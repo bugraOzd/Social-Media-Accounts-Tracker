@@ -4,11 +4,21 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CompetitionSoftwareComponent } from './pages/competition-software/competition-software.component';
 import { WordNinjaComponent } from './pages/word-ninja/word-ninja.component';
 import { WordPyramidsComponent } from './pages/word-pyramids/word-pyramids.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
   },
   {
     path: 'about-us',

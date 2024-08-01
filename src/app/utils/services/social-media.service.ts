@@ -3,14 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class SocialMediaService {
 
   constructor() { }
-
-  signIn(email: string, password: string) {
-  }
-
-  signUp() {
-
-  }
 }
