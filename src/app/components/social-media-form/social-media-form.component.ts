@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { SocialMedia } from '../../utils/interfaces/SocialMedia.interface';
 
 @Component({
   selector: 'app-social-media-form',
@@ -8,8 +9,12 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
   templateUrl: './social-media-form.component.html',
   styleUrl: './social-media-form.component.css'
 })
-export class SocialMediaFormComponent {
+export class SocialMediaFormComponent implements OnInit {
   socialMediaForm: FormGroup;
+  updateId: string = '';
+
+  @Input() socialMediaItem: SocialMedia | null = null;
+
   @Output() cancel = new EventEmitter();
 
   constructor(private fb: FormBuilder) {
@@ -20,6 +25,11 @@ export class SocialMediaFormComponent {
     });
   }
 
+  ngOnInit(): void {
+    console.log(this.socialMediaItem)
+    this.setUpdateData();
+  }
+
   onSubmit() {
     console.log(this.socialMediaForm.value);
     this.cancel.emit();
@@ -27,5 +37,16 @@ export class SocialMediaFormComponent {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  setUpdateData() {
+    if (!this.socialMediaItem) return;
+
+    this.updateId = this.socialMediaItem.id;
+    this.socialMediaForm.setValue({
+      socialMediaLink: this.socialMediaItem.socialMediaLink,
+      socialMediaName: this.socialMediaItem.socialMediaName,
+      description: this.socialMediaItem.description
+    });
   }
 }
