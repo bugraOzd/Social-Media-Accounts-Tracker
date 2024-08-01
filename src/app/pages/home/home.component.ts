@@ -5,45 +5,24 @@ import { TableComponent } from '../../components/table/table.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { SocialMediaFormComponent } from '../../components/social-media-form/social-media-form.component';
 import { SocialMedia } from '../../utils/interfaces/SocialMedia.interface';
+import { SocialMediaService } from '../../utils/services/social-media.service';
+import { AsyncPipe } from '@angular/common';
+import { NewSocialMedia } from '../../utils/interfaces/NewSocialMedia.interface';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgIconComponent, TableComponent, ModalComponent, SocialMediaFormComponent],
+  imports: [NgIconComponent, TableComponent, ModalComponent, SocialMediaFormComponent, AsyncPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   viewProviders: [provideIcons({ matFilterAlt, matSearch, matPlus })]
 })
 export class HomeComponent {
+  $socialMediaItems = this.socialMediaService.getSocialMediaItems();
   isSocialMediaModalVisible = false;
   editingSocialMediaItem: SocialMedia | null = null;
 
-  socialMediaItems = [
-    {
-      id: '1',
-      socialMediaLink: 'instagram.com/mobilerast/',
-      socialMediaName: 'instagram',
-      description: "We'll help you to finish your development project successfully."
-    },
-    {
-      id: '2',
-      socialMediaLink: 'tr.linkedin.com/company/rastmobile',
-      socialMediaName: 'linkedin',
-      description: 'Hire vetted developers from Rast Mobile to scale up your tech projects.'
-    },
-    {
-      id: '3',
-      socialMediaLink: 'behance.net/rastmobile',
-      socialMediaName: 'behance',
-      description: 'Software Development Agency Rast Mobile Information Technology Ltd.'
-    },
-    {
-      id: '4',
-      socialMediaLink: 'twitter.com/rastmobile',
-      socialMediaName: 'twitter',
-      description: 'Software Development Agency Rast Mobile Information Technology Ltd.'
-    }
-  ];
+  constructor(private socialMediaService: SocialMediaService) { }
 
   onClickAddNewAccout() {
     this.isSocialMediaModalVisible = true;
@@ -54,12 +33,22 @@ export class HomeComponent {
     this.isSocialMediaModalVisible = false;
   }
 
+  onCreateNewItem(item: NewSocialMedia) {
+    console.log(item)
+    this.socialMediaService.createSocialMediaItem(item).subscribe(res => res);
+  }
+
   onEditClick(item: SocialMedia) {
     this.isSocialMediaModalVisible = true;
     this.editingSocialMediaItem = item;
   }
 
-  onDeleteClick(id: string) {
+  onConfirmEdit(data: { id: string, item: SocialMedia }) {
+    const { id, item } = data;
+    this.socialMediaService.updateSocialMediaItem(id, item).subscribe(res => res);
+  }
 
+  onDeleteClick(id: string) {
+    this.socialMediaService.deleteSocialMediaItem(id).subscribe(res => res);
   }
 }
