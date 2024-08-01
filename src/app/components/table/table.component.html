@@ -1,1 +1,40 @@
-<p>table works!</p>
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light border border-neutral-200">
+          <thead class=" border-b bg-white border-neutral-200">
+            <tr>
+              @for (item of headers; track $index) {
+              <th scope="col"
+                  class="px-10 py-6 border-e">{{item}}</th>
+              }
+              <!-- ACTIONS COLUMN HEADER -->
+              <th scope="col"
+                  class="px-6 py-6 border-e"></th>
+            </tr>
+          </thead>
+          <tbody class="[&>*:nth-child(odd)]:bg-white">
+            @for (item of socialMediaList; track $index) {
+            <tr class="border-b border-neutral-200 hover:shadow-md">
+              <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.link }}</td>
+              <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.name }}</td>
+              <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.description }}</td>
+              <td class="whitespace-nowrap px-6 py-6 border-e">
+                <div class="flex gap-2">
+                  <button class="px-4 py-2 rounded-c-lg border border-neutral-200 hover:bg-purple-1 hover:text-white">
+                    <ng-icon name="matEdit"></ng-icon>
+                  </button>
+                  <button class="px-4 py-2 rounded-c-lg border border-neutral-200 hover:bg-purple-1 hover:text-white">
+                    <ng-icon name="matDelete"></ng-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
