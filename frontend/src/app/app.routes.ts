@@ -4,6 +4,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CompetitionSoftwareComponent } from './pages/competition-software/competition-software.component';
 import { WordNinjaComponent } from './pages/word-ninja/word-ninja.component';
 import { WordPyramidsComponent } from './pages/word-pyramids/word-pyramids.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 export const routes: Routes = [
   {
@@ -11,7 +12,15 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'about-us',
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignInComponent
+  },
+  {
+    path: 'about-up',
     component: AboutUsComponent
   },
   {
