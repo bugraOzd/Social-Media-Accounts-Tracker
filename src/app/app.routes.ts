@@ -6,12 +6,10 @@ import { WordNinjaComponent } from './pages/word-ninja/word-ninja.component';
 import { WordPyramidsComponent } from './pages/word-pyramids/word-pyramids.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthGuard } from './utils/guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
   {
     path: 'sign-in',
     component: SignInComponent
@@ -19,6 +17,16 @@ export const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about-us',
@@ -35,5 +43,9 @@ export const routes: Routes = [
   {
     path: 'word-pyramids',
     component: WordPyramidsComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
