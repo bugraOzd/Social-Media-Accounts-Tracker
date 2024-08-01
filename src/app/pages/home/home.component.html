@@ -1,1 +1,32 @@
-<p>home works!</p>
+<section class="px-24 pt-10">
+  <div class="flex justify-between">
+    <div class="flex items-center gap-3">
+      <div>
+        <input class="rounded-l-c-lg px-6 py-3 w-[20rem]"
+               placeholder="Search objects...">
+        <button class="bg-purple-1 rounded-r-c-lg px-4 py-3 text-white">
+          <ng-icon name="matSearch"></ng-icon>
+        </button>
+      </div>
+
+      <button class="rounded-c-lg bg-white px-4 py-3 text-purple-1">
+        <ng-icon name="matFilterAlt"></ng-icon>
+      </button>
+    </div>
+
+    <button class="bg-purple-1 text-white font-light rounded-c-lg px-6 py-3"
+            (click)="onClickAddNewAccout()">
+      <span class="text-lg">+</span>
+      Yeni Hesap Ekle
+    </button>
+  </div>
+
+  <div>
+    <app-table></app-table>
+  </div>
+
+  <app-modal [isOpen]="isAddModalVisible"
+             (closeModal)="onClickCloseModal()">
+    <app-social-media-form (cancel)="onClickCloseModal()"></app-social-media-form>
+  </app-modal>
+</section>
