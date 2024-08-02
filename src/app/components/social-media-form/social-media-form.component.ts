@@ -28,7 +28,6 @@ export class SocialMediaFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.socialMediaItem)
     this.setUpdateData();
   }
 
