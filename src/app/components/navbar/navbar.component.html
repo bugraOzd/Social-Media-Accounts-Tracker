@@ -1,38 +1,32 @@
-<nav class="bg-white flex justify-between items-center px-24 py-10">
+<nav class="bg-white flex justify-between items-center px-4 py-6 md:px-24 md:py-10">
   <div>
-    <img class="w-[124.27] h-[36.7px] cursor-pointer"
+    <img class="w-[124.27px] h-[36.7px] cursor-pointer"
          routerLink=""
          src="assets/logo.png">
   </div>
 
-  <div>
-    <ul class="flex gap-10 font-light">
+  <div class="hidden md:flex">
+    <ul class="flex gap-4 md:gap-10 font-light">
       <li>
         <a class="link"
            routerLink="about-us">Hakkımızda</a>
       </li>
       <li>
         <a class="link"
-           routerLink="competition-software">
-          Jüri - Yarışma Yazılımı
-        </a>
+           routerLink="competition-software">Jüri - Yarışma Yazılımı</a>
       </li>
       <li>
         <a class="link"
-           routerLink="word-ninja">
-          Word Ninja
-        </a>
+           routerLink="word-ninja">Word Ninja</a>
       </li>
       <li>
         <a class="link"
-           routerLink="word-pyramids">
-          Word Pyramids
-        </a>
+           routerLink="word-pyramids">Word Pyramids</a>
       </li>
     </ul>
   </div>
 
-  <div class="flex gap-2">
+  <div class="hidden md:flex gap-2">
     <a class="w-[18px] h-[18px] link"
        routerLink="">
       <img src="assets/youtube.png">
@@ -49,5 +43,67 @@
        routerLink="">
       <img src="assets/linkedin.png">
     </a>
+  </div>
+
+  <!-- Mobile menu button -->
+  <div class="md:hidden">
+    <button (click)="toggleMenu()"
+            class="focus:outline-none">
+      <svg class="w-6 h-6"
+           fill="none"
+           stroke="currentColor"
+           viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}"
+       class="md:hidden w-full absolute top-16 left-0 bg-white shadow-lg">
+    <ul class="flex flex-col items-center gap-4 font-light">
+      <li>
+        <a class="link"
+           routerLink="about-us"
+           (click)="toggleMenu()">Hakkımızda</a>
+      </li>
+      <li>
+        <a class="link"
+           routerLink="competition-software"
+           (click)="toggleMenu()">Jüri - Yarışma Yazılımı</a>
+      </li>
+      <li>
+        <a class="link"
+           routerLink="word-ninja"
+           (click)="toggleMenu()">Word Ninja</a>
+      </li>
+      <li>
+        <a class="link"
+           routerLink="word-pyramids"
+           (click)="toggleMenu()">Word Pyramids</a>
+      </li>
+      <li class="flex gap-2">
+        <a class="w-[18px] h-[18px] link"
+           routerLink="">
+          <img src="assets/youtube.png">
+        </a>
+        <a class="w-[18px] h-[18px] link"
+           routerLink="">
+          <img src="assets/instagram.png">
+        </a>
+        <a class="w-[18px] h-[18px] link"
+           routerLink="">
+          <img src="assets/be.png">
+        </a>
+        <a class="w-[18px] h-[18px] link"
+           routerLink="">
+          <img src="assets/linkedin.png">
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
