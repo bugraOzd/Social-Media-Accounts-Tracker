@@ -1,0 +1,12 @@
+<section class="w-[14rem]">
+  <h1 class="text-xl">Last Visited</h1>
+  <hr>
+  <ul class="py-3">
+    @for (item of visitedRoutes; track $index) {
+    <li class="pb-2">
+      <a class="hover:text-purple-1"
+         [routerLink]="item.value">{{item.key}}</a>
+    </li>
+    }
+  </ul>
+</section>
