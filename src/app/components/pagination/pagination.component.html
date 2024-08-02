@@ -1,0 +1,29 @@
+<div class="flex justify-between mt-4">
+  <div class="flex gap-4 items-center">
+    <label class="text-purple-1"
+           for="itemsPerPage">Show:</label>
+    <select class="rounded-c-lg px-4 py-3"
+            id="itemsPerPage"
+            [(ngModel)]="itemsPerPage"
+            (ngModelChange)="onItemsPerPageChange($event)">
+      @for (num of [5, 10, 15, 20]; track $index) {
+      <option [value]="num">{{ num }} Rows</option>
+      }
+    </select>
+  </div>
+
+  <div class="flex gap-3 items-center">
+    <button class="text-purple-1 disabled:text-gray-500"
+            [disabled]="currentPage === 1"
+            (click)="onPageChange(currentPage - 1)">
+      <ng-icon class="text-[2.3rem]"
+               name="matChevronLeft"></ng-icon>
+    </button>
+    <span>{{ currentPage }}</span>
+    <button class="text-purple-1"
+            (click)="onPageChange(currentPage + 1)">
+      <ng-icon class="text-[2.3rem]"
+               name="matChevronRight"></ng-icon>
+    </button>
+  </div>
+</div>
