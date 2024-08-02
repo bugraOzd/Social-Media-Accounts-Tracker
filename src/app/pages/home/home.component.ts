@@ -34,7 +34,7 @@ export class HomeComponent {
   private refreshSubject = new BehaviorSubject<void>(undefined);
   private searchTermSubject = new BehaviorSubject<string>('');
   private currentPageSubject = new BehaviorSubject<number>(1);
-  private itemsPerPageSubject = new BehaviorSubject<number>(10);
+  private itemsPerPageSubject = new BehaviorSubject<number>(5);
 
   $socialMediaItems: Observable<SocialMedia[]> = combineLatest([
     this.refreshSubject.pipe(
@@ -50,11 +50,8 @@ export class HomeComponent {
         item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.socialMediaLink.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      console.log(currentPage)
       const startIndex = (currentPage - 1) * itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
-      console.log(startIndex)
-      console.log(endIndex)
+      const endIndex = (startIndex + itemsPerPage);
       return filteredItems.slice(startIndex, endIndex);
     })
   );
@@ -63,7 +60,7 @@ export class HomeComponent {
   editingSocialMediaItem: SocialMedia | null = null;
   searchTerm = '';
   currentPage = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 5;
 
   constructor(private socialMediaService: SocialMediaService) { }
 
@@ -72,6 +69,7 @@ export class HomeComponent {
   }
 
   onCurrentPageChange(page: number) {
+    this.currentPage = page;
     this.currentPageSubject.next(page);
   }
 
