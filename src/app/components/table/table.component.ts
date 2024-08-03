@@ -3,11 +3,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { matDelete, matEdit } from '@ng-icons/material-icons/baseline';
 import { SocialMedia } from '../../utils/interfaces/SocialMedia.interface';
+import { TruncatePipe } from '../../utils/pipes/truncate.pipe';
+import { HighlightDirective } from '../../utils/directives/highlight.directive';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [CommonModule, NgIconComponent, TruncatePipe, HighlightDirective],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
   viewProviders: [provideIcons({ matEdit, matDelete })]
