@@ -38,11 +38,11 @@ This project is a full-stack web application for managing social media accounts.
 3. Ensure MongoDB is running locally (for more information see: https://www.mongodb.com/docs/manual/installation/)
 4. Start the backend server:
    ```
-   cd backend && npm start
+   cd socialMediaApi && npm start
    ```
 5. Start the Angular development server:
    ```
-   cd frontend && ng serve
+   ..cd && ng serve
    ```
 6. Open your browser and navigate to `http://localhost:4200`
 
