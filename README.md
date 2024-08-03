@@ -32,8 +32,8 @@ This project is a full-stack web application for managing social media accounts.
 1. Clone the repository
 2. Install dependencies:
    ```
-   cd frontend && npm install
-   cd ../backend && npm install
+   npm install
+   cd ../socialMediaApi && npm install
    ```
 3. Ensure MongoDB is running locally (for more information see: https://www.mongodb.com/docs/manual/installation/)
 4. Start the backend server:
