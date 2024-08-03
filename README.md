@@ -32,7 +32,7 @@ This project is a full-stack web application for managing social media accounts.
 1. Clone the repository
 2. Install dependencies:
    ```
-   npm install (to install frontend)
+   cd Social-Media-Accounts-Tracker && npm install (to install frontend)
    cd socialMediaApi && npm install (to install backend)
    ```
 3. Ensure MongoDB is running locally (for more information see: https://www.mongodb.com/docs/manual/installation/)
