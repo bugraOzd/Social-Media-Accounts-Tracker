@@ -1,27 +1,59 @@
-# AngularCase
+# Social Media Management Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+This project is a full-stack web application for managing social media accounts. It allows users to create, read, update, and delete social media entries.
 
-## Development server
+## Technologies Used
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Frontend
 
-## Code scaffolding
+- Angular
+- RxJS for reactive programming
+- ng-icons for icon components
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Backend
 
-## Build
+- Node.js
+- Express.js
+- MongoDB (local instance)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
+- Display a list of social media accounts
+- Add new social media accounts
+- Edit existing social media accounts
+- Delete social media accounts
+- Search functionality to filter social media entries
+- Client side pagination
+- Mock authentication service that generates a uuid on login and writes it in the local storage
+- Store all the pages that user visits and display them in the last visited drawer on the left side of the screen
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Setup and Installation
 
-## Running end-to-end tests
+1. Clone the repository
+2. Install dependencies:
+   ```
+   cd frontend && npm install
+   cd ../backend && npm install
+   ```
+3. Ensure MongoDB is running locally (for more information see: https://www.mongodb.com/docs/manual/installation/)
+4. Start the backend server:
+   ```
+   cd backend && npm start
+   ```
+5. Start the Angular development server:
+   ```
+   cd frontend && ng serve
+   ```
+6. Open your browser and navigate to `http://localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## API Endpoints
 
-## Further help
+- GET `/api/social-media`: Retrieve all social media entries
+- POST `/api/social-media`: Create a new social media entry
+- GET `/api/social-media/:id`: Retrieve a specific social media entry
+- PUT `/api/social-media/:id`: Update a specific social media entry
+- DELETE `/api/social-media/:id`: Delete a specific social media entry
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Postman Collection
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/27552449-2bc82366-801b-4ab2-b904-83bd932e1834?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D27552449-2bc82366-801b-4ab2-b904-83bd932e1834%26entityType%3Dcollection%26workspaceId%3D019904ba-fa84-42bc-99ec-2266f0a6d4df)

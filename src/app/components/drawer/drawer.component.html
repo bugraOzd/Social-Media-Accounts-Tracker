@@ -1,0 +1,11 @@
+<div class="drawer-container"
+     [@drawerState]="isOpen ? 'open' : 'closed'">
+  <div class="drawer-content">
+    <ng-content></ng-content>
+  </div>
+  <button class="drawer-toggle"
+          (click)="toggleDrawer()"
+          [class.open]="isOpen">
+    {{ isOpen ? '◀' : '▶' }}
+  </button>
+</div>

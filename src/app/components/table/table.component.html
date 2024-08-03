@@ -16,10 +16,11 @@
           </thead>
           <tbody class="[&>*:nth-child(odd)]:bg-white">
             @for (item of socialMediaItems; track $index) {
-            <tr class="border-b border-neutral-200 hover:shadow-md">
+            <tr appHighlight
+                class="border-b border-neutral-200 hover:shadow-md">
               <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.socialMediaLink }}</td>
               <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.socialMediaName }}</td>
-              <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.description }}</td>
+              <td class="whitespace-nowrap px-10 py-6 border-e">{{ item.description | truncate }}</td>
               <td class="whitespace-nowrap px-4 py-6 border-e">
                 <div class="flex  justify-center gap-2">
                   <button class="px-4 py-2 rounded-c-lg border border-neutral-200 hover:bg-purple-1 hover:text-white"
